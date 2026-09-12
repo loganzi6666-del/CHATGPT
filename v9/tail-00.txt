@@ -1,0 +1,89 @@
+장 완장을 맡겨보려 한다.',['책임감을 받아들인다','경기에만 집중한다','동료를 먼저 챙긴다']],
+ ['상급팀 콜업','U18 팀 훈련에 잠시 합류할 기회가 생겼다.',['도전한다','체력 관리를 우선한다','코치에게 준비 시간을 요청한다']]
+];
+function careerRoadmap(){
+ const europe=G.stage!=='youth'&&!['광주 FC','FC서울','전북 현대','울산 HD','포항 스틸러스','인천 유나이티드','대전 하나 시티즌','강원 FC','수원 FC'].includes(G.club);
+ const big=['Real Madrid','FC Barcelona','Manchester City','Liverpool','Arsenal','Bayern München','PSG'].includes(G.club);
+ return [
+  ['유소년 입단',G.age>=14,'14세 · 아카데미'],['U18 승격',G.age>=16||G.youthTeam==='U18','16세 전후'],['프로 계약',G.stage!=='youth','18세 전후'],['1군 주전',G.careerApps>=20&&G.managerTrust>=65,'통산 출전 20+'],['유럽 진출',europe,'해외 이적'],['빅클럽',big,'엘리트 구단'],['월드컵',G.worldCupApps>0,'A대표팀'],['발롱도르',G.awards?.ballon>0,'세계 최고']
+ ];
+}
+function calcMarketValue(){
+ const ageFactor=G.age<19?0.6:G.age<24?1.3:G.age<29?1.15:G.age<32?0.9:0.65;
+ const perf=1+(G.form-50)/120+(G.goals+G.assists)/45;
+ const base=Math.max(.08,(G.ovr-45)**2/95);
+ return Math.max(.08,Math.round(base*ageFactor*perf*10)/10);
+}
+function awardScore(){return Math.round(G.ovr*1.6+G.goals*4+G.assists*3+G.motm*4+(G.ratingSum/Math.max(1,G.apps))*6+G.nationalGoals*3)}
+const players=[
+['Son Heung-min','선수','대한민국','LAFC','양발 마무리와 침투, 리더십이 강점인 공격수.'],
+['Kylian Mbappé','선수','프랑스','Real Madrid','폭발적 스피드와 결정력이 강점인 슈퍼스타.'],
+['Erling Haaland','선수','노르웨이','Manchester City','박스 안 움직임과 득점 생산성이 압도적.'],
+['Jude Bellingham','선수','잉글랜드','Real Madrid','공수 영향력이 모두 큰 현대형 미드필더.'],
+['Lamine Yamal','선수','스페인','FC Barcelona','창의성과 1대1 돌파가 뛰어난 윙어.'],
+['Vinícius Júnior','선수','브라질','Real Madrid','폭발적인 돌파와 전환 공격이 강점.'],
+['Bukayo Saka','선수','잉글랜드','Arsenal','꾸준한 생산성과 팀 플레이가 강점.'],
+['Phil Foden','선수','잉글랜드','Manchester City','좁은 공간 기술과 득점 감각이 뛰어남.'],
+['Florian Wirtz','선수','독일','Liverpool','공간 이해와 키패스가 강점인 공격형 미드필더.'],
+['Jamal Musiala','선수','독일','Bayern München','밀집 지역 드리블과 방향 전환이 강점.'],
+['Rodri','선수','스페인','Manchester City','경기 조율과 수비 밸런스를 동시에 담당.'],
+['Pedri','선수','스페인','FC Barcelona','템포 조절과 탈압박 능력이 강점.'],
+['Federico Valverde','선수','우루과이','Real Madrid','활동량과 중거리 슈팅이 뛰어난 미드필더.'],
+['Declan Rice','선수','잉글랜드','Arsenal','수비 커버와 볼 운반이 뛰어남.'],
+['Martin Ødegaard','선수','노르웨이','Arsenal','창의적 패스와 압박 리딩이 강점.'],
+['Cole Palmer','선수','잉글랜드','Chelsea','침착한 마무리와 창의성이 강점.'],
+['Alexander Isak','선수','스웨덴','Newcastle United','부드러운 볼 터치와 피니시가 강점.'],
+['Lautaro Martínez','선수','아르헨티나','Inter','전방 압박과 박스 안 결정력이 강점.'],
+['Victor Osimhen','선수','나이지리아','Galatasaray','뒷공간 침투와 제공권이 강점.'],
+['Khvicha Kvaratskhelia','선수','조지아','PSG','예측하기 어려운 드리블과 창의성이 강점.'],
+['Rafael Leão','선수','포르투갈','AC Milan','긴 보폭의 드리블과 전환 공격이 강점.'],
+['Nico Williams','선수','스페인','Athletic Club','직선적인 돌파와 속도가 강점.'],
+['Ousmane Dembélé','선수','프랑스','PSG','양발 드리블과 찬스 메이킹이 강점.'],
+['Achraf Hakimi','선수','모로코','PSG','폭발적인 오버래핑과 전진성이 강점.'],
+['William Saliba','선수','프랑스','Arsenal','넓은 커버 범위와 1대1 수비가 강점.'],
+['Virgil van Dijk','선수','네덜란드','Liverpool','공중볼과 라인 컨트롤이 강점.'],
+['Rúben Dias','선수','포르투갈','Manchester City','리더십과 박스 수비가 강점.'],
+['Kim Min-jae','선수','대한민국','Bayern München','전진 수비와 넓은 커버 범위가 강점.'],
+['Alphonso Davies','선수','캐나다','Bayern München','스피드와 넓은 활동 반경이 강점.'],
+['Gianluigi Donnarumma','선수','이탈리아','PSG','큰 체격과 반사신경을 갖춘 골키퍼.'],
+['Thibaut Courtois','선수','벨기에','Real Madrid','큰 경기 선방 능력이 뛰어난 골키퍼.'],
+['Pep Guardiola','감독','스페인','Manchester City','포지셔널 플레이와 점유 구조 설계의 상징.'],
+['Carlo Ancelotti','감독','이탈리아','Real Madrid','선수 관리와 빅매치 운영이 강점인 베테랑.'],
+['Mikel Arteta','감독','스페인','Arsenal','조직적 빌드업과 전방 압박을 중시.'],
+['Xabi Alonso','감독','스페인','Bayer Leverkusen','유연한 빌드업과 구조적 압박으로 평가받는 지도자.'],
+['Luis Enrique','감독','스페인','PSG','공격적인 점유 축구와 강한 압박을 선호.'],
+['Diego Simeone','감독','아르헨티나','Atlético Madrid','강한 조직력과 전환 축구의 상징.'],
+['Antonio Conte','감독','이탈리아','Napoli','강한 규율과 윙백 활용을 선호.'],
+['Hansi Flick','감독','독일','FC Barcelona','빠른 공격 전환과 공격적 압박을 선호.'],
+['Jürgen Klopp','은퇴 감독','독일','Liverpool','게겐프레싱과 강한 동기부여로 유명.'],
+['Sir Alex Ferguson','레전드 감독','스코틀랜드','Manchester United','장기 집권과 세대교체의 상징.'],
+['Arsène Wenger','레전드 감독','프랑스','Arsenal','육성과 공격 축구 철학으로 큰 영향.'],
+['José Mourinho','감독','포르투갈','축구계','승부 관리와 토너먼트 운영으로 유명.'],
+['Zinedine Zidane','레전드 선수/감독','프랑스','Real Madrid','선수와 감독으로 모두 정상에 오른 인물.'],
+['Thierry Henry','레전드 선수','프랑스','Arsenal','스피드와 마무리의 프리미어리그 아이콘.'],
+['Paolo Maldini','레전드 선수','이탈리아','AC Milan','수비의 교과서로 불린 원클럽 레전드.'],
+['David Beckham','레전드 선수','잉글랜드','Manchester United','정확한 킥과 글로벌 스타성의 상징.'],
+['Andrea Pirlo','레전드 선수','이탈리아','Juventus','롱패스와 경기 템포 조절의 대가.'],
+['Didier Drogba','레전드 선수','코트디부아르','Chelsea','큰 경기에서 강했던 피지컬 스트라이커.'],
+['Wayne Rooney','레전드 선수','잉글랜드','Manchester United','다재다능함과 투지가 강점이었던 공격수.'],
+['Ronaldinho','레전드 선수','브라질','FC Barcelona','창의성과 쇼맨십의 상징.'],
+['Ronaldo Nazário','레전드 선수','브라질','Real Madrid','폭발적인 가속과 마무리로 시대를 지배.'],
+['Kaká','레전드 선수','브라질','AC Milan','큰 보폭의 전진과 득점력이 강점이었던 미드필더.'],
+['Xavi','레전드 선수/감독','스페인','FC Barcelona','점유 축구의 핵심이었던 플레이메이커.'],
+['Andrés Iniesta','레전드 선수','스페인','FC Barcelona','좁은 공간 탈압박과 결정적 패스의 상징.'],
+['Sergio Ramos','레전드 선수','스페인','Real Madrid','리더십과 득점력까지 갖춘 센터백.'],
+['Gianluigi Buffon','레전드 선수','이탈리아','Juventus','장수와 안정감의 상징이었던 골키퍼.'],
+['Iker Casillas','레전드 선수','스페인','Real Madrid','반사신경과 큰 경기 선방으로 유명.'],
+['Steven Gerrard','레전드 선수','잉글랜드','Liverpool','중거리 슈팅과 리더십의 상징.'],
+['Frank Lampard','레전드 선수','잉글랜드','Chelsea','미드필더 득점력의 상징.'],
+['Paul Scholes','레전드 선수','잉글랜드','Manchester United','패스와 경기 조율로 유명.'],
+['Patrick Vieira','레전드 선수','프랑스','Arsenal','피지컬과 전진성을 겸비한 미드필더.'],
+['Yaya Touré','레전드 선수','코트디부아르','Manchester City','박스투박스 영향력이 매우 컸던 미드필더.']
+];
+const transferTargets=[
+  ['박준혁','ST','대한민국','강원 FC',72,'€4.5M','드리블과 침투가 좋은 국내 유망주'],['Lee Carter','CAM','호주','Melbourne Victory',74,'€6.0M','볼 운반과 키패스가 강점인 공격형 미드필더'],['Mateo Silva','CB','브라질','Santos',76,'€8.5M','제공권과 빌드업이 좋은 센터백'],['Noah Berg','GK','스웨덴','AIK',73,'€5.2M','반사신경과 침착함이 장점']
+];
+const clubOfferPool=[
+['FC서울','K리그1',72000,'핵심 선수','€3.8M'],['전북 현대','K리그1',85000,'주전','€4.5M'],['울산 HD','K리그1',90000,'주전 경쟁','€5.0M'],
+['PSV','Eredivisie',125000,'로테이션','€8.5M'],['Ajax','Eredivisie',118000,'로테이션','€8.0M'],['Feyenoord','Eredivisie',110000,'주전 경쟁','€7.5M'],
+['L

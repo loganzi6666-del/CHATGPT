@@ -1,0 +1,128 @@
+p:8px}.objectiveGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.objective{padding:10px;border-radius:11px;background:#081e2b;border:1px solid #17455a}.objective b{display:block;font-size:13px}.objective small{color:#86a2b1}.xpBar{height:10px;background:#0d3242;border-radius:999px;overflow:hidden}.xpBar i{display:block;height:100%;background:linear-gradient(90deg,#6ef7bd,#50b8ff)}.formation{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;padding:14px;background:linear-gradient(#0e563a,#0b422f);border:2px solid #ffffff22;border-radius:12px;min-height:210px;align-content:space-around}.spot{background:#051d16cc;border:1px solid #ffffff33;border-radius:999px;padding:7px;text-align:center;font-size:10px}.spot.me{background:#e8fff5;color:#062015;font-weight:1000;box-shadow:0 0 0 3px #5bf0b055}.attrGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.attrBox{padding:12px;background:#071c29;border:1px solid #17445a;border-radius:11px}.attrBox b{font-size:25px}.attrBox small{display:block;color:#8ca7b6}.planGrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.plan{padding:12px;border:1px solid #1a4c63;border-radius:11px;background:#071d2b}.plan.active{border-color:#5bf0b0;box-shadow:0 0 0 1px #5bf0b044}.badgeWall{display:flex;flex-wrap:wrap;gap:7px}.badgeItem{padding:8px 10px;border-radius:9px;background:#0d2a3a;border:1px solid #1b5068;font-size:10px}.sponsorCard{padding:12px;border:1px solid #194c62;border-radius:11px;background:#071d2a}.lockerRow{display:grid;grid-template-columns:42px 1fr auto;gap:9px;align-items:center;padding:9px 0;border-bottom:1px solid #12374b}.lockerAvatar{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:#12394d}.compactLife{display:grid;grid-template-columns:260px 1fr;gap:10px}.compactLife img{width:100%;height:260px;object-fit:cover;border-radius:12px}.milestone{padding:10px;border-left:3px solid var(--gold);background:#0a2231;border-radius:8px}.risk.low{color:#5bf0b0}.risk.mid{color:#ffd36a}.risk.high{color:#ff6e7a}
+@media(max-width:1100px){.careerHeroInner,.compactLife{grid-template-columns:1fr}.objectiveGrid,.planGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.formation{min-height:170px}}
+@media(max-width:700px){.objectiveGrid,.planGrid,.attrGrid{grid-template-columns:1fr}.careerHero h1{font-size:28px}}
+</style>
+</head><body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">FOOTBALL LIFE <span>8</span></div>
+    <div class="profile">
+      <div class="playerBadge">10</div>
+      <div>
+        <strong id="pfName">Logan Lee</strong>
+        <small id="pfClub">광주 FC · CAM</small>
+        <small id="pfNation">🇰🇷 대한민국</small>
+        <div class="kpis" style="margin-top:8px">
+          <div class="kpiRow"><span>나이</span><b id="pfAge">18</b></div>
+          <div class="kpiRow"><span>주급</span><b id="pfWage">€45K</b></div>
+          <div class="kpiRow"><span>감독 신뢰</span><b id="pfMgr">68</b></div>
+          <div><div class="kpiRow"><span>컨디션</span><b id="pfFit">92%</b></div><div class="bar"><i id="fitBar" style="width:92%"></i></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="nav" id="nav">
+      <button data-page="home" class="active">🏠 홈</button>
+      <button data-page="inbox">✉️ 인박스 / 라이브</button>
+      <button data-page="match">⚽ 경기 센터</button>
+      <button data-page="development">📈 선수 성장</button>
+      <button data-page="career">🔎 월드 / 선수 DB</button>
+      <button data-page="standings">🏆 시즌 / 대회</button>
+      <button data-page="transfer">💼 이적 / 계약</button>
+      <button data-page="manager">🎙️ 감독 / 라커룸</button>
+      <button data-page="agent">🤝 에이전트 / 스폰서</button>
+      <button data-page="national">🇰🇷 국가대표</button>
+      <button data-page="life">💗 사생활</button>
+      <button data-page="shopping">🛍️ 자산 / 쇼핑</button>
+      <button data-page="retire">🧠 은퇴 후 감독 커리어</button>
+      <button data-page="settings">⚙️ 설정</button>
+    </div>
+    <div class="quote">“경기, 관계, 선택이 모두 커리어를 만든다.”</div>
+  </aside>
+  <main class="main">
+    <div class="topbar">
+      <div class="topLeft"><div class="datebox"><b id="topDate">2026년 7월 12일</b><small id="topSub">시즌 진행 중 · 광주 FC</small></div></div>
+      <div class="headerStats"><div><small>OVR</small><b id="topOvr">64</b></div><div><small>컨디션</small><b id="topCond">94</b></div><div><small>잔액</small><b id="topMoney">₩55.8M</b></div></div>
+      <button class="advance" onclick="Game.advanceWeek()">다음 주 진행 ▶</button>
+    </div>
+    <section id="page-home" class="page active"></section>
+    <section id="page-inbox" class="page"></section>
+    <section id="page-match" class="page"></section>
+    <section id="page-development" class="page"></section>
+    <section id="page-career" class="page"></section>
+    <section id="page-standings" class="page"></section>
+    <section id="page-transfer" class="page"></section>
+    <section id="page-manager" class="page"></section>
+    <section id="page-agent" class="page"></section>
+    <section id="page-national" class="page"></section>
+    <section id="page-life" class="page"></section>
+    <section id="page-shopping" class="page"></section>
+    <section id="page-retire" class="page"></section>
+    <section id="page-settings" class="page"></section>
+  </main>
+</div>
+<div id="modal" class="modal hidden"><div class="modalCard"><div class="title"><h2 id="modalTitle">상세 정보</h2><button class="btn" onclick="UI.closeModal()">닫기</button></div><div id="modalBody"></div></div></div>
+<div id="toasts" class="toastBox"></div>
+<script>
+const AS='assets/';
+const scenes=[
+  ['profile','프로필',AS+'v7_harin/profile.jpg','처음부터 마지막까지 같은 인물의 기준 얼굴입니다.'],
+  ['cafe','카페 데이트',AS+'v7_harin/cafe.jpg','편안한 대화와 소소한 설렘을 쌓는 장면.'],
+  ['night','야간 데이트',AS+'v7_harin/night.jpg','분위기가 깊어지고 관계가 빨라지는 밤 산책.'],
+  ['shopping','쇼핑',AS+'v7_harin/shopping.jpg','함께 고르고 웃으면서 취향을 알아가는 시간.'],
+  ['travel','여행',AS+'v7_harin/travel.jpg','짧은 여행으로 특별한 추억을 만드는 코스.'],
+  ['stadium','경기장',AS+'v7_harin/stadium.jpg','당신의 경기와 커리어를 함께 응원하는 순간.'],
+  ['home','집 데이트',AS+'v7_harin/home.jpg','편안한 공간에서 진지한 대화를 나누는 시간.'],
+  ['argument','다툼',AS+'v7_harin/argument.jpg','갈등을 어떻게 풀지에 따라 신뢰가 달라집니다.'],
+  ['proposal','프로포즈',AS+'v7_harin/proposal.jpg','인생의 중요한 선택이 시작되는 장면.'],
+  ['wedding','결혼식',AS+'v7_harin/wedding.jpg','연애가 새로운 단계로 넘어가는 결정적 순간.'],
+  ['family','가족',AS+'v7_harin/family.jpg','함께 보내는 일상 속 안정감과 따뜻함.']
+];
+const places=[
+  ['cafe','카페',AS+'loc_cafe.webp',4,600000],['restaurant','레스토랑',AS+'loc_restaurant.webp',5,1500000],['cinema','영화관',AS+'loc_cinema.webp',3,800000],['drive','드라이브',AS+'loc_drive.webp',4,1200000],['shopping','쇼핑',AS+'loc_shopping.webp',5,2400000],['stadium','경기장',AS+'loc_stadium.webp',6,400000],['themepark','테마파크',AS+'loc_themepark.webp',7,3500000],['hotel','호캉스',AS+'loc_hotel.webp',8,5400000]
+];
+const fixtures=[['울산 HD','K리그1 22라운드'],['전북 현대','K리그1 23라운드'],['FC서울','K리그1 24라운드'],['포항 스틸러스','K리그1 25라운드'],['인천 유나이티드','FA컵 8강']];
+const standingsBase=[['울산 HD',43,21,13,4,4,37,20],['광주 FC',39,21,11,6,4,33,23],['전북 현대',38,21,11,5,5,32,24],['FC서울',36,21,10,6,5,30,23],['포항 스틸러스',34,21,9,7,5,28,22],['인천 유나이티드',26,21,7,5,9,22,27]];
+const players=[
+['Son Heung-min','선수','대한민국','LAFC','양발 마무리와 침투, 리더십이 강점인 공격수.'],
+['Kylian Mbappé','선수','프랑스','Real Madrid','폭발적 스피드와 결정력이 강점인 슈퍼스타.'],
+['Erling Haaland','선수','노르웨이','Manchester City','박스 안 움직임과 득점 생산성이 압도적.'],
+['Jude Bellingham','선수','잉글랜드','Real Madrid','공수 영향력이 모두 큰 현대형 미드필더.'],
+['Lamine Yamal','선수','스페인','FC Barcelona','창의성과 1대1 돌파가 뛰어난 윙어.'],
+['Vinícius Júnior','선수','브라질','Real Madrid','폭발적인 돌파와 전환 공격이 강점.'],
+['Bukayo Saka','선수','잉글랜드','Arsenal','꾸준한 생산성과 팀 플레이가 강점.'],
+['Phil Foden','선수','잉글랜드','Manchester City','좁은 공간 기술과 득점 감각이 뛰어남.'],
+['Florian Wirtz','선수','독일','Liverpool','공간 이해와 키패스가 강점인 공격형 미드필더.'],
+['Jamal Musiala','선수','독일','Bayern München','밀집 지역 드리블과 방향 전환이 강점.'],
+['Rodri','선수','스페인','Manchester City','경기 조율과 수비 밸런스를 동시에 담당.'],
+['Pedri','선수','스페인','FC Barcelona','템포 조절과 탈압박 능력이 강점.'],
+['Federico Valverde','선수','우루과이','Real Madrid','활동량과 중거리 슈팅이 뛰어난 미드필더.'],
+['Declan Rice','선수','잉글랜드','Arsenal','수비 커버와 볼 운반이 뛰어남.'],
+['Martin Ødegaard','선수','노르웨이','Arsenal','창의적 패스와 압박 리딩이 강점.'],
+['Cole Palmer','선수','잉글랜드','Chelsea','침착한 마무리와 창의성이 강점.'],
+['Alexander Isak','선수','스웨덴','Newcastle United','부드러운 볼 터치와 피니시가 강점.'],
+['Lautaro Martínez','선수','아르헨티나','Inter','전방 압박과 박스 안 결정력이 강점.'],
+['Victor Osimhen','선수','나이지리아','Galatasaray','뒷공간 침투와 제공권이 강점.'],
+['Khvicha Kvaratskhelia','선수','조지아','PSG','예측하기 어려운 드리블과 창의성이 강점.'],
+['Rafael Leão','선수','포르투갈','AC Milan','긴 보폭의 드리블과 전환 공격이 강점.'],
+['Nico Williams','선수','스페인','Athletic Club','직선적인 돌파와 속도가 강점.'],
+['Ousmane Dembélé','선수','프랑스','PSG','양발 드리블과 찬스 메이킹이 강점.'],
+['Achraf Hakimi','선수','모로코','PSG','폭발적인 오버래핑과 전진성이 강점.'],
+['William Saliba','선수','프랑스','Arsenal','넓은 커버 범위와 1대1 수비가 강점.'],
+['Virgil van Dijk','선수','네덜란드','Liverpool','공중볼과 라인 컨트롤이 강점.'],
+['Rúben Dias','선수','포르투갈','Manchester City','리더십과 박스 수비가 강점.'],
+['Kim Min-jae','선수','대한민국','Bayern München','전진 수비와 넓은 커버 범위가 강점.'],
+['Alphonso Davies','선수','캐나다','Bayern München','스피드와 넓은 활동 반경이 강점.'],
+['Gianluigi Donnarumma','선수','이탈리아','PSG','큰 체격과 반사신경을 갖춘 골키퍼.'],
+['Thibaut Courtois','선수','벨기에','Real Madrid','큰 경기 선방 능력이 뛰어난 골키퍼.'],
+['Pep Guardiola','감독','스페인','Manchester City','포지셔널 플레이와 점유 구조 설계의 상징.'],
+['Carlo Ancelotti','감독','이탈리아','Real Madrid','선수 관리와 빅매치 운영이 강점인 베테랑.'],
+['Mikel Arteta','감독','스페인','Arsenal','조직적 빌드업과 전방 압박을 중시.'],
+['Xabi Alonso','감독','스페인','Bayer Leverkusen','유연한 빌드업과 구조적 압박으로 평가받는 지도자.'],
+['Luis Enrique','감독','스페인','PSG','공격적인 점유 축구와 강한 압박을 선호.'],
+['Diego Simeone','감독','아르헨티나','Atlético Madrid','강한 조직력과 전환 축구의 상징.'],
+['Antonio Conte','감독','이탈리아','Napoli','강한 규율과 윙백 활용을 선호.'],
+['Hansi Flick','감독','독일','FC Barcelona','빠른 공격 전환과 공격적 압박을 선호.'],
+['Jürgen Klopp','은퇴 감독','독일','Liverpool','게겐프레싱과 강한 동기부여로 유명.'],
+['Sir Alex Ferguson','레전드 감독','스코틀랜드','Manchester United','장기 집권과 세대교체의 상징.'],
+['Arsène Wenger','레전드 감독','프랑스','Arsenal','육성과 공격 축구 철학으로 큰 영향.'],
+['José Mourinho','감독','포르투갈','축구계','승부 관리와 토

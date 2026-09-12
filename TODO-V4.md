@@ -1,0 +1,1 @@
+Final assembly step: replace character sheet placeholders with binary blobs, update index scripts, fast-forward main, verify Pages.

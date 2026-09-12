@@ -1,0 +1,47 @@
+AFC','MLS',135000,'주전','€9.0M'],['Seattle Sounders','MLS',105000,'핵심 선수','€7.0M'],['Real Sociedad','LaLiga',155000,'로테이션','€12M'],
+['Villarreal','LaLiga',160000,'주전 경쟁','€13M'],['Brighton','Premier League',180000,'로테이션','€16M'],['Aston Villa','Premier League',210000,'유망주','€18M'],
+['RB Leipzig','Bundesliga',175000,'로테이션','€15M'],['Eintracht Frankfurt','Bundesliga',150000,'주전 경쟁','€12M'],['Lille','Ligue 1',145000,'주전 경쟁','€11M'],['Monaco','Ligue 1',165000,'로테이션','€13M']
+];
+
+const liveEventsSeed=[
+ ['감독 미팅','감독이 네 훈련 태도와 다음 경기 역할을 직접 논의하려고 한다.',['성실하게 의견을 듣는다','주전 욕심을 강하게 어필한다','팀을 위한 역할을 묻는다']],
+ ['에이전트 연락','빅클럽이 비공식 관심을 보이고 있다는 메시지가 왔다.',['차분히 더 지켜본다','에이전트에게 적극 진행을 맡긴다','감독에게 먼저 알린다']],
+ ['연애 갈등','하린이 최근 네가 축구에만 몰두한다고 서운해한다.',['바로 시간을 낸다','솔직하게 일정의 어려움을 말한다','다음 주에 풀자고 미룬다']],
+ ['SNS 논란','경기 후 SNS 게시물이 오해를 불러 팬들 반응이 갈렸다.',['즉시 해명한다','무시하고 경기력으로 답한다','게시물을 내린다']],
+ ['광고 제안','스폰서 브랜드 촬영 제안이 들어왔다.',['수락한다','짧게 참여한다','경기 집중을 위해 거절한다']],
+ ['국가대표 소집','A매치 소집 예비 명단에 이름이 올랐다.',['대표팀 차출을 기대한다','소속팀 컨디션 관리를 우선한다','에이전트와 상의한다']],
+ ['선수단 회식','팀 분위기를 끌어올리기 위한 회식이 잡혔다.',['끝까지 함께한다','적당히 있다가 먼저 간다','참석하지 않는다']],
+ ['가족 행사','가족이 중요한 모임에 꼭 와달라고 부탁한다.',['참석한다','짧게 얼굴만 비춘다','일정 때문에 거절한다']]
+];
+const eventVariations=['프리시즌','중요 경기 전','연승 중','부진 탈출 직후','대표팀 기간','이적시장 막판','더비 주간','컵대회 주간'];
+const eventContexts=['감독','에이전트','연애','팀 동료','SNS','국가대표','스폰서','가족','팬','언론'];
+const liveEvents=[];
+outer: for(const base of liveEventsSeed){
+  for(const v of eventVariations){
+    for(const c of eventContexts){
+      liveEvents.push([`${base[0]} · ${v}`,`${base[1]} (${c} 관련 상황)`,[...base[2]]]);
+      if(liveEvents.length>=160) break outer;
+    }
+  }
+}
+const shop=[
+['스포츠카','🚗',62000000,'팬 주목도 상승 · 멘탈 +2'],['럭셔리 시계','⌚',18000000,'브랜드 이미지 +1'],['도심 펜트하우스','🏙️',950000000,'생활 만족도 +6'],
+['개인 피지오 패키지','🩺',6200000,'컨디션 관리에 도움'],['패션 쇼핑','🛍️',9500000,'데이트 만족도 상승'],['가족 여행 적금','✈️',14000000,'장기 관계 만족도 상승'],
+['슈퍼카','🏎️',480000000,'스타성 +8 · 유지비 증가'],['해외 별장','🏡',2300000000,'자산 가치와 가족 만족 증가'],['고급 오디오 룸','🎧',28000000,'멘탈 +4'],
+['게이밍 룸','🎮',18000000,'멘탈 +3'],['개인 셰프','👨‍🍳',42000000,'컨디션 회복 보너스'],['전담 영양사','🥗',36000000,'부상 위험 감소'],
+['개인 트레이너','🏋️',50000000,'훈련 성장 보너스'],['개인 미디어팀','📸',75000000,'팬·미디어 관리 보너스'],['명품 의류 패키지','🧥',26000000,'브랜드 가치 상승'],
+['요트 지분','🛥️',740000000,'자산 + 명성'],['전용 항공 서비스','🛩️',320000000,'여행 피로 감소'],['유소년 후원','⚽',80000000,'프로의식·명성 상승'],
+['개인 브랜드 런칭','🏷️',150000000,'사업 수익 발생'],['부동산 투자','🏢',600000000,'주간 패시브 수익']
+];
+const coachTracks=[['유소년 코치','선수 육성과 전술 교육에 집중','유망주 성장 보너스'],['1군 감독','전술과 선수 관리 중심','팀 성적 보너스'],['해설가','미디어 활동과 분석력','명성 수익'],['단장 / 구단주','재정과 이적시장 운영','클럽 장기 운영']];
+const trainingPlans={recovery:{name:'회복 주간',fit:14,xp:8,risk:-8,desc:'체력과 부상 위험 관리'},balanced:{name:'균형 훈련',fit:4,xp:18,risk:0,desc:'성장과 회복의 균형'},intense:{name:'강도 높은 훈련',fit:-10,xp:34,risk:10,desc:'빠른 성장, 높은 피로'},tactical:{name:'전술 집중',fit:-4,xp:22,risk:2,desc:'감독 신뢰와 포지션 숙련'}};
+const sponsorPool=[['NOVA Boots','축구화 스폰서',8500000,'경기 출전 시 브랜드 보너스'],['PeakFuel','스포츠 음료',5200000,'컨디션 회복 +1'],['Aero Mobile','모바일 브랜드',7200000,'팬·미디어 노출 증가'],['Velocity Wear','스포츠 의류',6800000,'스타성·팬 증가']];
+const rivalPool=['박준혁','Lee Carter','Mateo Silva','김도윤','정우혁'];
+const skillNames={pace:'스피드',shoot:'슈팅',pass:'패스',dribble:'드리블',vision:'시야',physical:'피지컬',composure:'침착성',pressing:'압박'};
+
+
+function money(v){if(v>=1e9)return '₩'+(v/1e9).toFixed(1)+'B';if(v>=1e6)return '₩'+(v/1e6).toFixed(1)+'M';return '₩'+v.toLocaleString('ko-KR')}
+const clamp=(n,min=0,max=100)=>Math.max(min,Math.min(max,n));
+const initialState=()=>({saveVersion:9,name:'Logan Lee',club:'광주 FC U15',pos:'CAM',nation:'대한민국',age:14,year:2026,month:3,day:7,week:1,stage:'youth',youthTeam:'U15',ovr:52,potential:87,form:60,fitness:96,morale:78,money:150000,wage:0,managerTrust:55,scene:'profile',partner:null,affection:0,trust:0,relationStage:'잠금',children:0,history:['14세, 광주 FC U15 아카데미에 입단했다.','프로 선수가 되기 위한 첫 시즌이 시작됐다.'],watched:['Son Heung-min'],inventory:[],inbox:[...youthEvents.slice(0,2)],news:['광주 FC U15, 새 시즌 유망주 경쟁 시작','지역 스카우트들이 아카데미 경기를 관찰한다'],fixtures:makeYouthFixtures(),retired:false,legacy:'',apps:0,goals:0,assists:0,careerApps:0,careerGoals:0,careerAssists:0,ratingSum:0,motm:0,lastMatch:{opp:'연습경기',res:'-',rating:'-',goals:0,assists:0},xp:0,level:1,skillPoints:2,attrs:{pace:57,shoot:48,pass:54,dribble:58,vision:53,physical:43,composure:46,pressing:51},weeklyPlan:'balanced',injuryRisk:5,teamChemistry:61,captainTrust:8,fans:350,mediaRep:4,agentRep:0,nationalRep:8,nationalCaps:0,nationalGoals:0,internationalStatus:'U15 지역 관찰 대상',sponsors:[],sponsorOffers:[],weeklySponsorIncome:0,rival:rivalPool[0],rivalry:8,locker:{'U15 주장 민수':58,'윙어 태현':55,'수비수 준호':52},streak:0,careerPoints:0,achievements:['아카데미 입단'],seasonObjectives:[{id:'apps',name:'유소년 12경기 출전',target:12,reward:'XP 100',claimed:false},{id:'ga',name:'공격포인트 10개',target:10,reward:'스킬 포인트 +2',claimed:false},{id:'ovr',name:'OVR 58 달성',target:58,reward:'아카데미 평판 +10',claimed:false}],contractWeeks:0,role:'U15 로테이션 → 주전 경쟁',nationalWindow:0,academyRep:45,schoolBalance:70,parentSupport:80,wonderkidRank:38,marketValue:.2,marketTrend:0,awards:{ballon:0,goldenBoot:0,assistKing:0,bestXI:0,poty:0},awardHistory:[],worldCupApps:0,worldCupGoals:0,worldCupBest:'-',worldCupPlayedYear:0,matchSession:null,transferOffers:[],leagueTable:youthStandingsBase.map(r=>({club:r[0],pts:r[1],p:r[2],w:r[3],d:r[4],l:r[5],gf:r[6],ga:r[7]})),managerLog:[],managerPromise:null,businessIncome:0,coachCareer:{active:false,path:'',level:0,club:'',board:55,budget:30000000,w:0,d:0,l:0,reputation:0}})
+let G=JSON.parse(localStorage.getItem('footballLife9')||'null')||initialState();
+Object.assign(G,{saveVersion:9,potential:G.potential??87,academyRep:G.academyRep??45,schoolBalance:G.schoolBalance??70,parentSupport:G.parentSupport??80,wonderkidRank:G.wonderkidRank??38,marketValue:G.marketValue??calcMarketValue(),marketTrend:G.marketTrend??0,careerApps:G.careerApps??G.apps??0,careerGoals:G.careerGoals??G.goals??0,careerAssists:G.careerAssists??G.assists??0,ratingSum:G.ratingSum??0,motm:G.

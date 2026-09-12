@@ -1,0 +1,101 @@
+ze:13px}.objective small{color:#86a2b1}.xpBar{height:10px;background:#0d3242;border-radius:999px;overflow:hidden}.xpBar i{display:block;height:100%;background:linear-gradient(90deg,#6ef7bd,#50b8ff)}.formation{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;padding:14px;background:linear-gradient(#0e563a,#0b422f);border:2px solid #ffffff22;border-radius:12px;min-height:210px;align-content:space-around}.spot{background:#051d16cc;border:1px solid #ffffff33;border-radius:999px;padding:7px;text-align:center;font-size:10px}.spot.me{background:#e8fff5;color:#062015;font-weight:1000;box-shadow:0 0 0 3px #5bf0b055}.attrGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.attrBox{padding:12px;background:#071c29;border:1px solid #17445a;border-radius:11px}.attrBox b{font-size:25px}.attrBox small{display:block;color:#8ca7b6}.planGrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.plan{padding:12px;border:1px solid #1a4c63;border-radius:11px;background:#071d2b}.plan.active{border-color:#5bf0b0;box-shadow:0 0 0 1px #5bf0b044}.badgeWall{display:flex;flex-wrap:wrap;gap:7px}.badgeItem{padding:8px 10px;border-radius:9px;background:#0d2a3a;border:1px solid #1b5068;font-size:10px}.sponsorCard{padding:12px;border:1px solid #194c62;border-radius:11px;background:#071d2a}.lockerRow{display:grid;grid-template-columns:42px 1fr auto;gap:9px;align-items:center;padding:9px 0;border-bottom:1px solid #12374b}.lockerAvatar{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:#12394d}.compactLife{display:grid;grid-template-columns:260px 1fr;gap:10px}.compactLife img{width:100%;height:260px;object-fit:cover;border-radius:12px}.milestone{padding:10px;border-left:3px solid var(--gold);background:#0a2231;border-radius:8px}.risk.low{color:#5bf0b0}.risk.mid{color:#ffd36a}.risk.high{color:#ff6e7a}
+@media(max-width:1100px){.careerHeroInner,.compactLife{grid-template-columns:1fr}.objectiveGrid,.planGrid{grid-template-columns:repeat(2,minmax(0,1fr))}.formation{min-height:170px}}
+@media(max-width:700px){.objectiveGrid,.planGrid,.attrGrid{grid-template-columns:1fr}.careerHero h1{font-size:28px}}
+
+/* V9 youth-to-legend additions */
+.roadmap{display:grid;grid-template-columns:repeat(8,minmax(120px,1fr));gap:8px;overflow:auto;padding-bottom:4px}.roadStep{min-width:120px;padding:10px;border-radius:11px;background:#071d2a;border:1px solid #19485e;position:relative}.roadStep.done{border-color:#5bf0b0;background:#0a2b29}.roadStep.now{border-color:#ffd36a;box-shadow:0 0 0 1px #ffd36a55}.roadStep.locked{opacity:.48}.roadStep b{display:block;font-size:12px}.roadStep small{display:block;color:#8fa6b4;margin-top:4px}.awardGrid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}.awardCard{padding:12px;border-radius:12px;background:linear-gradient(145deg,#102739,#081b28);border:1px solid #25506a}.awardCard .cup{font-size:25px}.awardCard b{display:block;margin-top:5px}.lockPanel{padding:28px;text-align:center;border:1px dashed #365566;border-radius:14px;background:#071721}.lockPanel .lockIcon{font-size:42px}.matchPhase{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.matchPhase span{padding:5px 8px;border-radius:999px;background:#0d3143;border:1px solid #20536b;font-size:10px}.cardFlag{padding:3px 7px;border-radius:999px;font-size:10px}.cardFlag.yellow{background:#ffd84a;color:#271e00}.cardFlag.red{background:#ff6570;color:#2b0608}.marketUp{color:#5bf0b0}.marketDown{color:#ff7b84}.academyGrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.academyCard{padding:12px;border-radius:12px;background:#071d29;border:1px solid #17465d}.academyCard b{font-size:22px}.timelineLine{display:grid;grid-template-columns:80px 1fr;gap:9px;padding:8px 0;border-bottom:1px solid #123548}.timelineLine:last-child{border-bottom:0}.subtle{font-size:10px;color:#78909e}.halfBanner{padding:9px;border-radius:10px;background:linear-gradient(90deg,#16435b,#0c2c3d);font-weight:900;text-align:center}
+@media(max-width:1000px){.awardGrid,.academyGrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.awardGrid,.academyGrid{grid-template-columns:1fr}}
+</style>
+</head><body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">FOOTBALL LIFE <span>9</span></div>
+    <div class="profile">
+      <img src="assets/logan.webp" alt="player">
+      <div>
+        <strong id="pfName">Logan Lee</strong>
+        <small id="pfClub">광주 FC · CAM</small>
+        <small id="pfNation">🇰🇷 대한민국</small>
+        <div class="kpis" style="margin-top:8px">
+          <div class="kpiRow"><span>나이</span><b id="pfAge">18</b></div>
+          <div class="kpiRow"><span>주급 / 용돈</span><b id="pfWage">€45K</b></div>
+          <div class="kpiRow"><span>감독 신뢰</span><b id="pfMgr">68</b></div>
+          <div><div class="kpiRow"><span>컨디션</span><b id="pfFit">92%</b></div><div class="bar"><i id="fitBar" style="width:92%"></i></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="nav" id="nav">
+      <button data-page="home" class="active">🏠 홈</button>
+      <button data-page="inbox">✉️ 인박스 / 라이브</button>
+      <button data-page="match">⚽ 경기 센터</button>
+      <button data-page="development">📈 선수 성장</button>
+      <button data-page="career">🔎 월드 / 선수 DB</button>
+      <button data-page="standings">🏆 시즌 / 대회</button>
+      <button data-page="transfer">💼 이적 / 계약</button>
+      <button data-page="manager">🎙️ 감독 / 라커룸</button>
+      <button data-page="agent">🤝 에이전트 / 스폰서</button>
+      <button data-page="national">🇰🇷 국가대표</button>
+      <button data-page="life">💗 사생활</button>
+      <button data-page="shopping">🛍️ 자산 / 쇼핑</button>
+      <button data-page="retire">🧠 은퇴 후 감독 커리어</button>
+      <button data-page="settings">⚙️ 설정</button>
+    </div>
+    <div class="quote">“경기, 관계, 선택이 모두 커리어를 만든다.”</div>
+  </aside>
+  <main class="main">
+    <div class="topbar">
+      <div class="topLeft"><div class="datebox"><b id="topDate">2026년 7월 12일</b><small id="topSub">시즌 진행 중 · 광주 FC</small></div></div>
+      <div class="headerStats"><div><small>OVR</small><b id="topOvr">64</b></div><div><small>컨디션</small><b id="topCond">94</b></div><div><small>잔액</small><b id="topMoney">₩55.8M</b></div></div>
+      <button class="advance" onclick="Game.advanceWeek()">다음 주 진행 ▶</button>
+    </div>
+    <section id="page-home" class="page active"></section>
+    <section id="page-inbox" class="page"></section>
+    <section id="page-match" class="page"></section>
+    <section id="page-development" class="page"></section>
+    <section id="page-career" class="page"></section>
+    <section id="page-standings" class="page"></section>
+    <section id="page-transfer" class="page"></section>
+    <section id="page-manager" class="page"></section>
+    <section id="page-agent" class="page"></section>
+    <section id="page-national" class="page"></section>
+    <section id="page-life" class="page"></section>
+    <section id="page-shopping" class="page"></section>
+    <section id="page-retire" class="page"></section>
+    <section id="page-settings" class="page"></section>
+  </main>
+</div>
+<div id="modal" class="modal hidden"><div class="modalCard"><div class="title"><h2 id="modalTitle">상세 정보</h2><button class="btn" onclick="UI.closeModal()">닫기</button></div><div id="modalBody"></div></div></div>
+<div id="toasts" class="toastBox"></div>
+<script>
+const AS='assets/';
+const scenes=[
+  ['profile','프로필',AS+'v7_harin/profile.jpg','처음부터 마지막까지 같은 인물의 기준 얼굴입니다.'],
+  ['cafe','카페 데이트',AS+'v7_harin/cafe.jpg','편안한 대화와 소소한 설렘을 쌓는 장면.'],
+  ['night','야간 데이트',AS+'v7_harin/night.jpg','분위기가 깊어지고 관계가 빨라지는 밤 산책.'],
+  ['shopping','쇼핑',AS+'v7_harin/shopping.jpg','함께 고르고 웃으면서 취향을 알아가는 시간.'],
+  ['travel','여행',AS+'v7_harin/travel.jpg','짧은 여행으로 특별한 추억을 만드는 코스.'],
+  ['stadium','경기장',AS+'v7_harin/stadium.jpg','당신의 경기와 커리어를 함께 응원하는 순간.'],
+  ['home','집 데이트',AS+'v7_harin/home.jpg','편안한 공간에서 진지한 대화를 나누는 시간.'],
+  ['argument','다툼',AS+'v7_harin/argument.jpg','갈등을 어떻게 풀지에 따라 신뢰가 달라집니다.'],
+  ['proposal','프로포즈',AS+'v7_harin/proposal.jpg','인생의 중요한 선택이 시작되는 장면.'],
+  ['wedding','결혼식',AS+'v7_harin/wedding.jpg','연애가 새로운 단계로 넘어가는 결정적 순간.'],
+  ['family','가족',AS+'v7_harin/family.jpg','함께 보내는 일상 속 안정감과 따뜻함.']
+];
+const places=[
+  ['cafe','카페',AS+'loc_cafe.webp',4,600000],['restaurant','레스토랑',AS+'loc_restaurant.webp',5,1500000],['cinema','영화관',AS+'loc_cinema.webp',3,800000],['drive','드라이브',AS+'loc_drive.webp',4,1200000],['shopping','쇼핑',AS+'loc_shopping.webp',5,2400000],['stadium','경기장',AS+'loc_stadium.webp',6,400000],['themepark','테마파크',AS+'loc_themepark.webp',7,3500000],['hotel','호캉스',AS+'loc_hotel.webp',8,5400000]
+];
+const fixtures=[['울산 HD','K리그1 22라운드'],['전북 현대','K리그1 23라운드'],['FC서울','K리그1 24라운드'],['포항 스틸러스','K리그1 25라운드'],['인천 유나이티드','FA컵 8강']];
+const standingsBase=[['울산 HD',43,21,13,4,4,37,20],['광주 FC',39,21,11,6,4,33,23],['전북 현대',38,21,11,5,5,32,24],['FC서울',36,21,10,6,5,30,23],['포항 스틸러스',34,21,9,7,5,28,22],['인천 유나이티드',26,21,7,5,9,22,27]];
+
+const youthStandingsBase=[['광주 FC U15',0,0,0,0,0,0,0],['전북 U15',0,0,0,0,0,0,0],['울산 U15',0,0,0,0,0,0,0],['FC서울 U15',0,0,0,0,0,0,0],['포항 U15',0,0,0,0,0,0,0],['수원 U15',0,0,0,0,0,0,0]];
+const youthOpponents=['전북 U15','울산 U15','FC서울 U15','포항 U15','수원 U15','대전 U15','부산 U15','제주 U15'];
+const seniorOpponents=['울산 HD','전북 현대','FC서울','포항 스틸러스','인천 유나이티드','대전 하나 시티즌','강원 FC','수원 FC'];
+function makeYouthFixtures(){return Array.from({length:30},(_,i)=>[youthOpponents[i%youthOpponents.length],`K리그 주니어 U15 ${i+1}라운드`])}
+function makeSeniorFixtures(){return Array.from({length:34},(_,i)=>[seniorOpponents[i%seniorOpponents.length],`K리그1 ${i+1}라운드`])}
+const youthEvents=[
+ ['학교 시험과 원정 경기','중간고사 다음 날 중요한 유소년 원정 경기가 잡혔다.',['공부와 훈련을 균형 있게 한다','축구에 더 집중한다','시험 준비를 우선한다']],
+ ['스카우트 방문','유럽 아카데미 스카우트가 이번 주 경기를 관찰한다.',['평소 플레이를 유지한다','개인기를 적극 보여준다','팀 플레이에 집중한다']],
+ ['포지션 변경 제안','유소년 감독이 다른 포지션도 경험해보라고 제안했다.',['새 포지션을 배운다','현재 포지션을 고수한다','멀티 포지션 훈련을 한다']],
+ ['부모님 면담','부모님과 코치가 학업과 축구의 균형을 논의한다.',['균형을 약속한다','프로 목표를 강하게 밝힌다','당분간 성적도 챙긴다']],
+ ['주장 완장','코치가 연습경기에서 주

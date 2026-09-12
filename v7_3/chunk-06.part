@@ -1,0 +1,9 @@
+ringify(G,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='FootballLife7_Save.json';a.click()},
+ reset(){if(confirm('V7 커리어를 초기화할까요?')){localStorage.removeItem('footballLife7');G=initialState();UI.renderAll();UI.show('home')}}
+};
+document.querySelectorAll('.nav button').forEach(b=>b.onclick=()=>UI.show(b.dataset.page));
+UI.renderAll();
+// seed some events on first open
+if(G.inbox.length===0){G.inbox=liveEvents.slice(0,3);save();UI.renderAll()}
+</script>
+</body></html>

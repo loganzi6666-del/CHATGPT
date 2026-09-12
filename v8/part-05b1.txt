@@ -1,0 +1,15 @@
+ection>=92&&G.trust>=86){G.relationStage='결혼';G.scene='wedding';G.history.unshift('하린과 결혼했다.');}
+ else if(G.relationStage==='결혼'&&G.children<2){G.children++;G.scene='family';G.history.unshift('가족이 한 명 늘었다.');}
+ else return UI.toast('관계 발전 조건이 아직 부족합니다.'); save();UI.renderAll();UI.toast('관계가 발전했습니다.')},
+ quickTrain(){if(G.fitness<20)return UI.toast('컨디션이 너무 낮습니다.');G.fitness=clamp(G.fitness-6);G.form=clamp(G.form+2);if(Math.random()<0.2)G.ovr++;save();UI.renderAll();UI.toast('가벼운 경기 전 훈련을 마쳤습니다.')},
+ recover(n,cost,name){if(G.money<cost)return UI.toast('잔액이 부족합니다.');G.money-=cost;G.fitness=clamp(G.fitness+n);G.morale=clamp(G.morale+1);save();UI.renderAll();UI.toast(`${name} · 컨디션 +${n}`)},
+ buy(i){const s=shop[i];if(G.money<s[2])return UI.toast('잔액이 부족합니다.');G.money-=s[2];G.inventory.push(s[0]);G.morale=clamp(G.morale+2);save();UI.renderAll();UI.toast(`${s[0]} 구매 완료`)},
+ profile(name){const p=players.find(x=>x[0]===name);if(!p)return;UI.modal(p[0],`<p><span class="pill">${p[1]}</span> <span class="pill">${p[2]}</span> <span class="pill">${p[3]}</span></p><p class="muted">${p[4]}</p><div class="notice">V7에서는 선수·감독·레전드 DB를 확장하고, 관찰한 인물은 향후 인간관계 / 이적시장 / 라이브 이벤트에 연결되게 만들 계획이다.</div>`)},
+ watch(name){if(!G.watched.includes(name))G.watched.push(name);save();UI.toast(`${name} 관찰을 시작합니다.`)},
+ transfer(club){G.club=club;G.money+=10000000;G.managerTrust=clamp(G.managerTrust-4);G.history.unshift(`${club}로 이적했다.`);save();UI.renderAll();UI.toast(`${club} 이적 완료`)},
+ managerAction(type){if(type==='talk'){G.managerTrust=clamp(G.managerTrust+4);G.history.unshift('감독과 대화를 나눴다.');UI.toast('감독 신뢰가 상승했습니다.');}
+ if(type==='role'){G.managerTrust=clamp(G.managerTrust+2);G.history.unshift('감독에게 역할을 문의했다.');UI.toast('플레이 역할을 확인했습니다.');}
+ if(type==='demand'){G.managerTrust=clamp(G.managerTrust-6);G.history.unshift('감독에게 출전 기회를 강하게 요구했다.');UI.toast('감독이 부담을 느낍니다.');}
+ save();UI.renderAll();},
+ answerEvent(idx,choice){const e=G.inbox[idx];if(!e)return;G.inbox.splice(idx,1);if(choice===0){G.morale=clamp(G.morale+2);G.managerTrust=clamp(G.managerTrust+1);} else if(choice===1){G.fitness=clamp(G.fitness+2);G.affection=clamp(G.affection+1);} else {G.morale=clamp(G.morale-1);G.trust=clamp(G.trust-1);}G.history.unshift(`${e[0]} 이벤트에서 '${e[2][choice]}' 선택.`);save();UI.renderAll();UI.toast('선택이 반영됐습니다.')},
+ startMatch(){if(G.matchSession)return;const f=G.fixtures[0];if(!f)return UI.toast('남은 일정이 없습니다.');G.matchSession={opp:f[0],comp:f[1],minute:1,us:0,them:Math.random()<.28?1:0,left:5,rating:6

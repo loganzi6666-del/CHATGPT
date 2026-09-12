@@ -1,0 +1,66 @@
+E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22200%22%20height%3D%22260%22%20rx%3D%2224%22%20fill%3D%22url%28%23g%29%22%2F%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%2292%22%20r%3D%2244%22%20fill%3D%22%23dfeff4%22%20opacity%3D%22.9%22%2F%3E%3Crect%20x%3D%2248%22%20y%3D%22145%22%20width%3D%22104%22%20height%3D%2272%22%20rx%3D%2228%22%20fill%3D%22%23dfeff4%22%20opacity%3D%22.9%22%2F%3E%3Ctext%20x%3D%22100%22%20y%3D%22245%22%20text-anchor%3D%22middle%22%20fill%3D%22white%22%20font-family%3D%22sans-serif%22%20font-size%3D%2222%22%20font-weight%3D%22700%22%3ELOGAN%3C%2Ftext%3E%3C%2Fsvg%3E" alt="player">
+      <div>
+        <strong id="pfName">Logan Lee</strong>
+        <small id="pfClub">광주 FC · CAM</small>
+        <small id="pfNation">🇰🇷 대한민국</small>
+        <div class="kpis" style="margin-top:8px">
+          <div class="kpiRow"><span>나이</span><b id="pfAge">18</b></div>
+          <div class="kpiRow"><span>주급</span><b id="pfWage">€45K</b></div>
+          <div class="kpiRow"><span>감독 신뢰</span><b id="pfMgr">68</b></div>
+          <div><div class="kpiRow"><span>컨디션</span><b id="pfFit">92%</b></div><div class="bar"><i id="fitBar" style="width:92%"></i></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="nav" id="nav">
+      <button data-page="home" class="active">🏠 홈</button>
+      <button data-page="inbox">✉️ 인박스 / 라이브</button>
+      <button data-page="match">⚽ 경기 센터</button>
+      <button data-page="career">👥 선수 검색 DB</button>
+      <button data-page="standings">🏆 시즌 순위</button>
+      <button data-page="transfer">💼 실제 이적시장</button>
+      <button data-page="manager">🎙️ 감독 관계</button>
+      <button data-page="life">💗 연애 스토리</button>
+      <button data-page="shopping">🛍️ 자산 / 쇼핑</button>
+      <button data-page="retire">🧠 은퇴 후 감독 커리어</button>
+      <button data-page="settings">⚙️ 설정</button>
+    </div>
+    <div class="quote">“경기, 관계, 선택이 모두 커리어를 만든다.”</div>
+  </aside>
+  <main class="main">
+    <div class="topbar">
+      <div class="topLeft"><div class="datebox"><b id="topDate">2026년 7월 12일</b><small id="topSub">시즌 진행 중 · 광주 FC</small></div></div>
+      <div class="headerStats"><div><small>OVR</small><b id="topOvr">64</b></div><div><small>컨디션</small><b id="topCond">94</b></div><div><small>잔액</small><b id="topMoney">₩55.8M</b></div></div>
+      <button class="advance" onclick="Game.advanceWeek()">다음 주 진행 ▶</button>
+    </div>
+    <section id="page-home" class="page active"></section>
+    <section id="page-inbox" class="page"></section>
+    <section id="page-match" class="page"></section>
+    <section id="page-career" class="page"></section>
+    <section id="page-standings" class="page"></section>
+    <section id="page-transfer" class="page"></section>
+    <section id="page-manager" class="page"></section>
+    <section id="page-life" class="page"></section>
+    <section id="page-shopping" class="page"></section>
+    <section id="page-retire" class="page"></section>
+    <section id="page-settings" class="page"></section>
+  </main>
+</div>
+<div id="modal" class="modal hidden"><div class="modalCard"><div class="title"><h2 id="modalTitle">상세 정보</h2><button class="btn" onclick="UI.closeModal()">닫기</button></div><div id="modalBody"></div></div></div>
+<div id="toasts" class="toastBox"></div>
+<script>
+const AS='';
+const scenes=[
+  ['profile','프로필','https://images.unsplash.com/photo-1758600587808-9e251cf34b94?auto=format&fit=crop&crop=faces&q=88&w=1000&h=1350','처음부터 마지막까지 같은 인물의 기준 얼굴입니다.'],
+  ['cafe','카페 데이트','https://images.unsplash.com/photo-1758600587808-9e251cf34b94?auto=format&fit=crop&crop=faces&q=88&w=1000&h=1350&bri=4','편안한 대화와 소소한 설렘을 쌓는 장면.'],
+  ['night','야간 데이트','https://images.unsplash.com/photo-1758600587808-9e251cf34b94?auto=format&fit=crop&crop=faces&q=88&w=1000&h=1350&bri=-12&sat=-10','분위기가 깊어지고 관계가 빨라지는 밤 산책.'],
+  ['shopping','쇼핑','https://images.unsplash.com/photo-1758600587808-9e251cf34b94?auto=format&fit=crop&crop=faces&q=88&w=1000&h=1350&bri=7&sat=8','함께 고르고 웃으면서 취향을 알아가는 시간.'],
+  ['travel','여행','https://images.unsplash.com/photo-1758600587808-9e251cf34b94?auto=format&fit=crop&crop=faces&q=88&w=1000&h=1350&con=6','짧은 여행으로 특별한 추억을 만드는 코스.'],
+  ['stadium','경기장','https://images.unsplash.com/photo-1758600587808-9e251cf34b94?auto=format&fit=crop&crop=faces&q=88&w=1000&h=1350&sat=12','당신의 경기와 커리어를 함께 응원하는 순간.'],
+  ['home','집 데이트','https://images.unsplash.com/photo-1758600587808-9e251cf34b94?auto=format&fit=crop&crop=faces&q=88&w=1000&h=1350&bri=2&sat=-5','편안한 공간에서 진지한 대화를 나누는 시간.'],
+  ['argument','다툼','https://images.unsplash.com/photo-1758600587808-9e251cf34b94?auto=format&fit=crop&crop=faces&q=88&w=1000&h=1350&bri=-9&sat=-22','갈등을 어떻게 풀지에 따라 신뢰가 달라집니다.'],
+  ['proposal','프로포즈','https://images.unsplash.com/photo-1758600587808-9e251cf34b94?auto=format&fit=crop&crop=faces&q=88&w=1000&h=1350&bri=6&con=4','인생의 중요한 선택이 시작되는 장면.'],
+  ['wedding','결혼식','https://images.unsplash.com/photo-1758600587808-9e251cf34b94?auto=format&fit=crop&crop=faces&q=88&w=1000&h=1350&bri=11&sat=-4','연애가 새로운 단계로 넘어가는 결정적 순간.'],
+  ['family','가족','https://images.unsplash.com/photo-1758600587808-9e251cf34b94?auto=format&fit=crop&crop=faces&q=88&w=1000&h=1350&bri=5&sat=4','함께 보내는 일상 속 안정감과 따뜻함.']
+];
+const places=[
+  ['cafe','카페','data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22360%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%23684934%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23c49a6c%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23g%29%22%2F%3E%3Ctext%20x%3D%22300%22%20y%3D%22150%22%20text-anchor%3D%22middle%22%20font-size%3D%2284%22%3E%E2%98%95%3C%2Ftext%3E%3Ctext%20x%3D%22300%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%20font-size%3D%2242%22%20fill%3D%22white%22%20font-weight%3D%22700%22%3E%EC%B9%B4%ED%8E%98%3C%2Ftext%3E%3C%2Fsvg%3E',4,600000],['restaurant','레스토랑','data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22360%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%236c2f3f%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23bb785e%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23g%29%22%2F%3E%3Ctext%20x%3D%22300%22%20y%3D%22150%22%20text-anchor%3D%22middle%22%20font-size%3D%2284%22%3E%F0%9F%8D%BD%EF%B8%8F%3C%2Ftext%3E%3Ctext%20x%3D%22300%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%20font-size%3D%2242%22%20fill%3D%22white%22%20font-weight%3D%22700%22%3E%EB%A0%88%EC%8A%A4%ED%86%A0%EB%9E%91%3C%2Ftext%3E%3C%2Fsvg%3E',5,1500000],['cinema','영화관','data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22360%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%2326294f%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%236c5bb0%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23g%29%22%2F%3E%3Ctext%20x%3D%22300%22%20y%3D%22150%22%20text-anchor%3D%22middle%22%20font-size%3D%2284%22%3E%F0%9F%8E%AC%3C%2Ftext%3E%3Ctext%20x%3D%22300%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%20font-size%3D%2242%22%20fill%3D%22white%22%20font-weight%3D%22700%22%3E%EC%98%81%ED%99%94%EA%B4%80%3C%2Ftext%3E%3C%2Fsvg%3E',3,800000],['drive','드라이브','data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22360%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%23173f58%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%234a9cc1%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23g%29%22%2F%3E%3Ctext%20x%3D%22300%22%20y%3D%22150%22%20text-anchor%3D%22middle%22%20font-size%3D%2284%22%3E%F0%9F%9A%97%3C%2Ftext%3E%3Ctext%20x%3D%22300%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%20font-size%3D%2242%22%20fill%3D%22white%22%20font-weight%3D%22700%22%3E%EB%93%9C%EB%9D%BC%EC%9D%B4%EB%B8%8C%3C%2Ftext%3E%3C%2Fsvg%3E',4,1200000],['shopping','쇼핑','data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22360%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%235b2b56%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23b869a7%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23g%29%22%2F%3E%3Ctext%20x%3D%22300%22%20y%3D%22150%22%20text-anchor%3D%22middle%22%20font-size%3D%2284%22%3E%F0%9F%9B%8D%EF%B8%8F%3C%2Ftext%3E%3Ctext%20x%3D%22300%22%20y%3D%22235%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%20font-size%3D%2242%22%20fill%3D%22white%22%20font-weight%3D%22700%22%3E%EC%87%BC%ED%95%91%3C%2Ftext%3E%3C%2Fsvg%3E',5,2400000],['stadium','경기장','data:image/svg+xml;charset=utf-8,

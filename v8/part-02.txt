@@ -1,0 +1,84 @@
+너먼트 운영으로 유명.'],
+['Zinedine Zidane','레전드 선수/감독','프랑스','Real Madrid','선수와 감독으로 모두 정상에 오른 인물.'],
+['Thierry Henry','레전드 선수','프랑스','Arsenal','스피드와 마무리의 프리미어리그 아이콘.'],
+['Paolo Maldini','레전드 선수','이탈리아','AC Milan','수비의 교과서로 불린 원클럽 레전드.'],
+['David Beckham','레전드 선수','잉글랜드','Manchester United','정확한 킥과 글로벌 스타성의 상징.'],
+['Andrea Pirlo','레전드 선수','이탈리아','Juventus','롱패스와 경기 템포 조절의 대가.'],
+['Didier Drogba','레전드 선수','코트디부아르','Chelsea','큰 경기에서 강했던 피지컬 스트라이커.'],
+['Wayne Rooney','레전드 선수','잉글랜드','Manchester United','다재다능함과 투지가 강점이었던 공격수.'],
+['Ronaldinho','레전드 선수','브라질','FC Barcelona','창의성과 쇼맨십의 상징.'],
+['Ronaldo Nazário','레전드 선수','브라질','Real Madrid','폭발적인 가속과 마무리로 시대를 지배.'],
+['Kaká','레전드 선수','브라질','AC Milan','큰 보폭의 전진과 득점력이 강점이었던 미드필더.'],
+['Xavi','레전드 선수/감독','스페인','FC Barcelona','점유 축구의 핵심이었던 플레이메이커.'],
+['Andrés Iniesta','레전드 선수','스페인','FC Barcelona','좁은 공간 탈압박과 결정적 패스의 상징.'],
+['Sergio Ramos','레전드 선수','스페인','Real Madrid','리더십과 득점력까지 갖춘 센터백.'],
+['Gianluigi Buffon','레전드 선수','이탈리아','Juventus','장수와 안정감의 상징이었던 골키퍼.'],
+['Iker Casillas','레전드 선수','스페인','Real Madrid','반사신경과 큰 경기 선방으로 유명.'],
+['Steven Gerrard','레전드 선수','잉글랜드','Liverpool','중거리 슈팅과 리더십의 상징.'],
+['Frank Lampard','레전드 선수','잉글랜드','Chelsea','미드필더 득점력의 상징.'],
+['Paul Scholes','레전드 선수','잉글랜드','Manchester United','패스와 경기 조율로 유명.'],
+['Patrick Vieira','레전드 선수','프랑스','Arsenal','피지컬과 전진성을 겸비한 미드필더.'],
+['Yaya Touré','레전드 선수','코트디부아르','Manchester City','박스투박스 영향력이 매우 컸던 미드필더.']
+];
+const transferTargets=[
+  ['박준혁','ST','대한민국','강원 FC',72,'€4.5M','드리블과 침투가 좋은 국내 유망주'],['Lee Carter','CAM','호주','Melbourne Victory',74,'€6.0M','볼 운반과 키패스가 강점인 공격형 미드필더'],['Mateo Silva','CB','브라질','Santos',76,'€8.5M','제공권과 빌드업이 좋은 센터백'],['Noah Berg','GK','스웨덴','AIK',73,'€5.2M','반사신경과 침착함이 장점']
+];
+const clubOfferPool=[
+['FC서울','K리그1',72000,'핵심 선수','€3.8M'],['전북 현대','K리그1',85000,'주전','€4.5M'],['울산 HD','K리그1',90000,'주전 경쟁','€5.0M'],
+['PSV','Eredivisie',125000,'로테이션','€8.5M'],['Ajax','Eredivisie',118000,'로테이션','€8.0M'],['Feyenoord','Eredivisie',110000,'주전 경쟁','€7.5M'],
+['LAFC','MLS',135000,'주전','€9.0M'],['Seattle Sounders','MLS',105000,'핵심 선수','€7.0M'],['Real Sociedad','LaLiga',155000,'로테이션','€12M'],
+['Villarreal','LaLiga',160000,'주전 경쟁','€13M'],['Brighton','Premier League',180000,'로테이션','€16M'],['Aston Villa','Premier League',210000,'유망주','€18M'],
+['RB Leipzig','Bundesliga',175000,'로테이션','€15M'],['Eintracht Frankfurt','Bundesliga',150000,'주전 경쟁','€12M'],['Lille','Ligue 1',145000,'주전 경쟁','€11M'],['Monaco','Ligue 1',165000,'로테이션','€13M']
+];
+
+const liveEventsSeed=[
+ ['감독 미팅','감독이 네 훈련 태도와 다음 경기 역할을 직접 논의하려고 한다.',['성실하게 의견을 듣는다','주전 욕심을 강하게 어필한다','팀을 위한 역할을 묻는다']],
+ ['에이전트 연락','빅클럽이 비공식 관심을 보이고 있다는 메시지가 왔다.',['차분히 더 지켜본다','에이전트에게 적극 진행을 맡긴다','감독에게 먼저 알린다']],
+ ['연애 갈등','하린이 최근 네가 축구에만 몰두한다고 서운해한다.',['바로 시간을 낸다','솔직하게 일정의 어려움을 말한다','다음 주에 풀자고 미룬다']],
+ ['SNS 논란','경기 후 SNS 게시물이 오해를 불러 팬들 반응이 갈렸다.',['즉시 해명한다','무시하고 경기력으로 답한다','게시물을 내린다']],
+ ['광고 제안','스폰서 브랜드 촬영 제안이 들어왔다.',['수락한다','짧게 참여한다','경기 집중을 위해 거절한다']],
+ ['국가대표 소집','A매치 소집 예비 명단에 이름이 올랐다.',['대표팀 차출을 기대한다','소속팀 컨디션 관리를 우선한다','에이전트와 상의한다']],
+ ['선수단 회식','팀 분위기를 끌어올리기 위한 회식이 잡혔다.',['끝까지 함께한다','적당히 있다가 먼저 간다','참석하지 않는다']],
+ ['가족 행사','가족이 중요한 모임에 꼭 와달라고 부탁한다.',['참석한다','짧게 얼굴만 비춘다','일정 때문에 거절한다']]
+];
+const eventVariations=['프리시즌','중요 경기 전','연승 중','부진 탈출 직후','대표팀 기간','이적시장 막판','더비 주간','컵대회 주간'];
+const eventContexts=['감독','에이전트','연애','팀 동료','SNS','국가대표','스폰서','가족','팬','언론'];
+const liveEvents=[];
+outer: for(const base of liveEventsSeed){
+  for(const v of eventVariations){
+    for(const c of eventContexts){
+      liveEvents.push([`${base[0]} · ${v}`,`${base[1]} (${c} 관련 상황)`,[...base[2]]]);
+      if(liveEvents.length>=160) break outer;
+    }
+  }
+}
+const shop=[
+['스포츠카','🚗',62000000,'팬 주목도 상승 · 멘탈 +2'],['럭셔리 시계','⌚',18000000,'브랜드 이미지 +1'],['도심 펜트하우스','🏙️',950000000,'생활 만족도 +6'],
+['개인 피지오 패키지','🩺',6200000,'컨디션 관리에 도움'],['패션 쇼핑','🛍️',9500000,'데이트 만족도 상승'],['가족 여행 적금','✈️',14000000,'장기 관계 만족도 상승'],
+['슈퍼카','🏎️',480000000,'스타성 +8 · 유지비 증가'],['해외 별장','🏡',2300000000,'자산 가치와 가족 만족 증가'],['고급 오디오 룸','🎧',28000000,'멘탈 +4'],
+['게이밍 룸','🎮',18000000,'멘탈 +3'],['개인 셰프','👨‍🍳',42000000,'컨디션 회복 보너스'],['전담 영양사','🥗',36000000,'부상 위험 감소'],
+['개인 트레이너','🏋️',50000000,'훈련 성장 보너스'],['개인 미디어팀','📸',75000000,'팬·미디어 관리 보너스'],['명품 의류 패키지','🧥',26000000,'브랜드 가치 상승'],
+['요트 지분','🛥️',740000000,'자산 + 명성'],['전용 항공 서비스','🛩️',320000000,'여행 피로 감소'],['유소년 후원','⚽',80000000,'프로의식·명성 상승'],
+['개인 브랜드 런칭','🏷️',150000000,'사업 수익 발생'],['부동산 투자','🏢',600000000,'주간 패시브 수익']
+];
+const coachTracks=[['유소년 코치','선수 육성과 전술 교육에 집중','유망주 성장 보너스'],['1군 감독','전술과 선수 관리 중심','팀 성적 보너스'],['해설가','미디어 활동과 분석력','명성 수익'],['단장 / 구단주','재정과 이적시장 운영','클럽 장기 운영']];
+const trainingPlans={recovery:{name:'회복 주간',fit:14,xp:8,risk:-8,desc:'체력과 부상 위험 관리'},balanced:{name:'균형 훈련',fit:4,xp:18,risk:0,desc:'성장과 회복의 균형'},intense:{name:'강도 높은 훈련',fit:-10,xp:34,risk:10,desc:'빠른 성장, 높은 피로'},tactical:{name:'전술 집중',fit:-4,xp:22,risk:2,desc:'감독 신뢰와 포지션 숙련'}};
+const sponsorPool=[['NOVA Boots','축구화 스폰서',8500000,'경기 출전 시 브랜드 보너스'],['PeakFuel','스포츠 음료',5200000,'컨디션 회복 +1'],['Aero Mobile','모바일 브랜드',7200000,'팬·미디어 노출 증가'],['Velocity Wear','스포츠 의류',6800000,'스타성·팬 증가']];
+const rivalPool=['박준혁','Lee Carter','Mateo Silva','김도윤','정우혁'];
+const skillNames={pace:'스피드',shoot:'슈팅',pass:'패스',dribble:'드리블',vision:'시야',physical:'피지컬',composure:'침착성',pressing:'압박'};
+
+
+function money(v){if(v>=1e9)return '₩'+(v/1e9).toFixed(1)+'B';if(v>=1e6)return '₩'+(v/1e6).toFixed(1)+'M';return '₩'+v.toLocaleString('ko-KR')}
+const clamp=(n,min=0,max=100)=>Math.max(min,Math.min(max,n));
+const initialState=()=>({name:'Logan Lee',club:'광주 FC',pos:'CAM',nation:'대한민국',age:18,year:2026,month:7,day:12,week:1,ovr:64,form:67,fitness:94,morale:76,money:55800000,wage:45,managerTrust:68,scene:'profile',partner:'하린',affection:78,trust:72,relationStage:'연애',children:0,history:['광주 FC에서 프로 커리어를 시작했다.','프로 데뷔 시즌, 주전 경쟁이 시작됐다.'],watched:['Son Heung-min','Pep Guardiola'],inventory:['개인 피지오 패키지'],inbox:[],news:['광주 FC, FA컵 8강 진출 도전','신인 Logan Lee의 성장세에 현지 언론 주목'],fixtures:[...fixtures],retired:false,legacy:'',apps:22,goals:7,assists:6,lastMatch:{opp:'대전 하나 시티즌',res:'2-1 승',rating:7.5,goals:1,assists:0},xp:240,level:4,skillPoints:3,attrs:{pace:69,shoot:63,pass:68,dribble:70,vision:67,physical:58,composure:61,pressing:64},weeklyPlan:'balanced',injuryRisk:9,teamChemistry:66,captainTrust:18,fans:12500,mediaRep:34,agentRep:42,nationalRep:28,nationalCaps:0,nationalGoals:0,internationalStatus:'U23 관찰 대상',sponsors:[],sponsorOffers:[],weeklySponsorIncome:0,rival:rivalPool[0],rivalry:22,locker:{'주장 민수':65,'윙어 태현':58,'수비수 준호':52},streak:2,careerPoints:0,achievements:['프로 데뷔','첫 공격포인트'],seasonObjectives:[{id:'apps',name:'30경기 출전',target:30,reward:'XP 120',claimed:false},{id:'ga',name:'공격포인트 20개',target:20,reward:'스킬 포인트 +2',claimed:false},{id:'ovr',name:'OVR 70 달성',target:70,reward:'팬 +8,000',claimed:false}],contractWeeks:92,role:'로테이션 → 주전 경쟁',nationalWindow:0})
+const oldSave=JSON.parse(localStorage.getItem('footballLife8')||localStorage.getItem('footballLife7')||'null');
+let G=oldSave||initialState();
+G.stage=G.stage||'player';G.matchSession=G.matchSession||null;G.transferOffers=G.transferOffers||[];G.leagueTable=G.leagueTable||standingsBase.map(r=>({club:r[0],pts:r[1],p:r[2],w:r[3],d:r[4],l:r[5],gf:r[6],ga:r[7]}));G.managerLog=G.managerLog||[];G.managerPromise=G.managerPromise||null;G.businessIncome=G.businessIncome||0;G.coachCareer=G.coachCareer||{active:false,path:'',level:0,club:'',board:55,budget:30000000,w:0,d:0,l:0,reputation:0};
+Object.assign(G,{xp:G.xp??240,level:G.level??4,skillPoints:G.skillPoints??3,attrs:G.attrs||{pace:69,shoot:63,pass:68,dribble:70,vision:67,physical:58,composure:61,pressing:64},weeklyPlan:G.weeklyPlan||'balanced',injuryRisk:G.injuryRisk??9,teamChemistry:G.teamChemistry??66,captainTrust:G.captainTrust??18,fans:G.fans??12500,mediaRep:G.mediaRep??34,agentRep:G.agentRep??42,nationalRep:G.nationalRep??28,nationalCaps:G.nationalCaps??0,nationalGoals:G.nationalGoals??0,internationalStatus:G.internationalStatus||'U23 관찰 대상',sponsors:G.sponsors||[],sponsorOffers:G.sponsorOffers||[],weeklySponsorIncome:G.weeklySponsorIncome??0,rival:G.rival||rivalPool[0],rivalry:G.rivalry??22,locker:G.locker||{'주장 민수':65,'윙어 태현':58,'수비수 준호':52},streak:G.streak??2,careerPoints:G.careerPoints??0,achievements:G.achievements||['프로 데뷔','첫 공격포인트'],seasonObjectives:G.seasonObjectives||initialState().seasonObjectives,contractWeeks:G.contractWeeks??92,role:G.role||'로테이션 → 주전 경쟁',nationalWindow:G.nationalWindow??0});
+if(G.wage>1000)G.wage=Math.round(G.wage/1000);
+function save(){localStorage.setItem('footballLife8',JSON.stringify(G))}
+const UI={
+ show(page){document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===page));document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id==='page-'+page));this.renderPage(page)},
+ renderPage(page){const m={home:this.home,inbox:this.inbox,match:this.match,development:this.development,career:this.career,standings:this.standings,transfer:this.transfer,manager:this.manager,agent:this.agent,national:this.national,life:this.life,shopping:this.shopping,retire:this.retire,settings:this.settings};m[page]?.call(this)},
+ renderTop(){pfName.textContent=G.name;pfClub.textContent=`${G.club} · ${G.pos}`;pfNation.textContent='🇰🇷 '+G.nation;pfAge.textContent=G.age;pfWage.textContent='€'+G.wage+'K';pfMgr.textContent=G.managerTrust;pfFit.textContent=G.fitness+'%';fitBar.style.width=G.fitness+'%';topDate.textContent=`${G.year}년 ${G.month}월 ${G.day}일`;topSub.textContent=`시즌 진행 중 · ${G.club}`;topOvr.textContent=G.ovr;topCond.textContent=G.fitness;topMoney.textContent=money(G.money)},
+ home(){const next=G.fixtures[0]||['시즌 종료','-'];const ga=G.goals+G.assists;const xpNeed=G.level*150;const xpPct=Math.min(100,Math.round((G.xp%xpNeed)/xpNeed*100));const sorted=[...G.leagueTable].sort((a,b)=>b.pts-a.pts||(b.gf-b.ga)-(a.gf-a.ga));const rank=sorted.findIndex(x=>x.club===G.club)+1;document.querySelector('#page-home').innerHTML=`<div class="grid"><div class="c8 careerHero"><div class="care
